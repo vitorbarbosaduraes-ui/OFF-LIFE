@@ -158,12 +158,6 @@
   background-color: var(--sand);
 }
 
-/* h3 card titles in the original use the sans font with semibold weight */
-@utility font-ui {
-  font-family: var(--font-sans);
-  letter-spacing: normal;
-}
-
 /* ---------- Leaflet map skin ---------- */
 .offlife-map .leaflet-container {
   font-family: var(--font-sans);
