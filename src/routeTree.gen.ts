@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as CadastroRouteImport } from './routes/cadastro'
 import { Route as DashboardRouteImport } from './routes/dashboard'
 import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as MapaRouteImport } from './routes/mapa'
 import { Route as OportunidadesRouteImport } from './routes/oportunidades'
 import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as ProfessoresRouteImport } from './routes/professores'
@@ -38,6 +39,11 @@ const DashboardRoute = DashboardRouteImport.update({
 const EventosRoute = EventosRouteImport.update({
   id: '/eventos',
   path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
   getParentRoute: () => rootRouteImport,
 } as any)
 const OportunidadesRoute = OportunidadesRouteImport.update({
@@ -76,6 +82,7 @@ export interface FileRoutesByFullPath {
   '/cadastro': typeof CadastroRoute
   '/dashboard': typeof DashboardRoute
   '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
   '/oportunidades': typeof OportunidadesRoute
   '/perfil': typeof PerfilRoute
   '/professores': typeof ProfessoresRoute
@@ -88,6 +95,7 @@ export interface FileRoutesByTo {
   '/cadastro': typeof CadastroRoute
   '/dashboard': typeof DashboardRoute
   '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
   '/oportunidades': typeof OportunidadesRoute
   '/perfil': typeof PerfilRoute
   '/professores': typeof ProfessoresRoute
@@ -101,6 +109,7 @@ export interface FileRoutesById {
   '/cadastro': typeof CadastroRoute
   '/dashboard': typeof DashboardRoute
   '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
   '/oportunidades': typeof OportunidadesRoute
   '/perfil': typeof PerfilRoute
   '/professores': typeof ProfessoresRoute
@@ -115,6 +124,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/dashboard'
     | '/eventos'
+    | '/mapa'
     | '/oportunidades'
     | '/perfil'
     | '/professores'
@@ -127,6 +137,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/dashboard'
     | '/eventos'
+    | '/mapa'
     | '/oportunidades'
     | '/perfil'
     | '/professores'
@@ -139,6 +150,7 @@ export interface FileRouteTypes {
     | '/cadastro'
     | '/dashboard'
     | '/eventos'
+    | '/mapa'
     | '/oportunidades'
     | '/perfil'
     | '/professores'
@@ -152,6 +164,7 @@ export interface RootRouteChildren {
   CadastroRoute: typeof CadastroRoute
   DashboardRoute: typeof DashboardRoute
   EventosRoute: typeof EventosRoute
+  MapaRoute: typeof MapaRoute
   OportunidadesRoute: typeof OportunidadesRoute
   PerfilRoute: typeof PerfilRoute
   ProfessoresRoute: typeof ProfessoresRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/eventos'
       fullPath: '/eventos'
       preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/oportunidades': {
@@ -240,6 +260,7 @@ const rootRouteChildren: RootRouteChildren = {
   CadastroRoute: CadastroRoute,
   DashboardRoute: DashboardRoute,
   EventosRoute: EventosRoute,
+  MapaRoute: MapaRoute,
   OportunidadesRoute: OportunidadesRoute,
   PerfilRoute: PerfilRoute,
   ProfessoresRoute: ProfessoresRoute,
