@@ -11,7 +11,14 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as DashboardRouteImport } from './routes/dashboard'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as MapaRouteImport } from './routes/mapa'
+import { Route as OportunidadesRouteImport } from './routes/oportunidades'
+import { Route as PerfilRouteImport } from './routes/perfil'
+import { Route as ProfessoresRouteImport } from './routes/professores'
 import { Route as QuestionarioRouteImport } from './routes/questionario'
+import { Route as RewardsRouteImport } from './routes/rewards'
 import { Route as SobreRouteImport } from './routes/sobre'
 
 const IndexRoute = IndexRouteImport.update({
@@ -24,9 +31,44 @@ const CadastroRoute = CadastroRouteImport.update({
   path: '/cadastro',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DashboardRoute = DashboardRouteImport.update({
+  id: '/dashboard',
+  path: '/dashboard',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const MapaRoute = MapaRouteImport.update({
+  id: '/mapa',
+  path: '/mapa',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OportunidadesRoute = OportunidadesRouteImport.update({
+  id: '/oportunidades',
+  path: '/oportunidades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProfessoresRoute = ProfessoresRouteImport.update({
+  id: '/professores',
+  path: '/professores',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const QuestionarioRoute = QuestionarioRouteImport.update({
   id: '/questionario',
   path: '/questionario',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RewardsRoute = RewardsRouteImport.update({
+  id: '/rewards',
+  path: '/rewards',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreRoute = SobreRouteImport.update({
@@ -38,34 +80,96 @@ const SobreRoute = SobreRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/dashboard': typeof DashboardRoute
+  '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
+  '/professores': typeof ProfessoresRoute
   '/questionario': typeof QuestionarioRoute
+  '/rewards': typeof RewardsRoute
   '/sobre': typeof SobreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/dashboard': typeof DashboardRoute
+  '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
+  '/professores': typeof ProfessoresRoute
   '/questionario': typeof QuestionarioRoute
+  '/rewards': typeof RewardsRoute
   '/sobre': typeof SobreRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/dashboard': typeof DashboardRoute
+  '/eventos': typeof EventosRoute
+  '/mapa': typeof MapaRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
+  '/professores': typeof ProfessoresRoute
   '/questionario': typeof QuestionarioRoute
+  '/rewards': typeof RewardsRoute
   '/sobre': typeof SobreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cadastro' | '/questionario' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/dashboard'
+    | '/eventos'
+    | '/mapa'
+    | '/oportunidades'
+    | '/perfil'
+    | '/professores'
+    | '/questionario'
+    | '/rewards'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cadastro' | '/questionario' | '/sobre'
-  id: '__root__' | '/' | '/cadastro' | '/questionario' | '/sobre'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/dashboard'
+    | '/eventos'
+    | '/mapa'
+    | '/oportunidades'
+    | '/perfil'
+    | '/professores'
+    | '/questionario'
+    | '/rewards'
+    | '/sobre'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/dashboard'
+    | '/eventos'
+    | '/mapa'
+    | '/oportunidades'
+    | '/perfil'
+    | '/professores'
+    | '/questionario'
+    | '/rewards'
+    | '/sobre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CadastroRoute: typeof CadastroRoute
+  DashboardRoute: typeof DashboardRoute
+  EventosRoute: typeof EventosRoute
+  MapaRoute: typeof MapaRoute
+  OportunidadesRoute: typeof OportunidadesRoute
+  PerfilRoute: typeof PerfilRoute
+  ProfessoresRoute: typeof ProfessoresRoute
   QuestionarioRoute: typeof QuestionarioRoute
+  RewardsRoute: typeof RewardsRoute
   SobreRoute: typeof SobreRoute
 }
 
@@ -85,11 +189,60 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof CadastroRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/dashboard': {
+      id: '/dashboard'
+      path: '/dashboard'
+      fullPath: '/dashboard'
+      preLoaderRoute: typeof DashboardRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/mapa': {
+      id: '/mapa'
+      path: '/mapa'
+      fullPath: '/mapa'
+      preLoaderRoute: typeof MapaRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oportunidades': {
+      id: '/oportunidades'
+      path: '/oportunidades'
+      fullPath: '/oportunidades'
+      preLoaderRoute: typeof OportunidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/professores': {
+      id: '/professores'
+      path: '/professores'
+      fullPath: '/professores'
+      preLoaderRoute: typeof ProfessoresRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/questionario': {
       id: '/questionario'
       path: '/questionario'
       fullPath: '/questionario'
       preLoaderRoute: typeof QuestionarioRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/rewards': {
+      id: '/rewards'
+      path: '/rewards'
+      fullPath: '/rewards'
+      preLoaderRoute: typeof RewardsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre': {
@@ -105,7 +258,14 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CadastroRoute: CadastroRoute,
+  DashboardRoute: DashboardRoute,
+  EventosRoute: EventosRoute,
+  MapaRoute: MapaRoute,
+  OportunidadesRoute: OportunidadesRoute,
+  PerfilRoute: PerfilRoute,
+  ProfessoresRoute: ProfessoresRoute,
   QuestionarioRoute: QuestionarioRoute,
+  RewardsRoute: RewardsRoute,
   SobreRoute: SobreRoute,
 }
 export const routeTree = rootRouteImport
