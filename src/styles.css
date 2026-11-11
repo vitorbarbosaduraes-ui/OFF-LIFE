@@ -261,3 +261,8 @@
 .cat-dot[data-cat="Educação"] { background: var(--cat-educacao); }
 .cat-dot[data-cat="Lazer"] { background: var(--cat-lazer); }
 .cat-dot[data-cat="Projetos Sociais"] { background: var(--cat-social); }
+
+.radius-circle {
+  stroke: var(--clay);
+  fill: var(--clay);
+}
