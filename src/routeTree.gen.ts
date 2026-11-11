@@ -11,6 +11,9 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as CadastroRouteImport } from './routes/cadastro'
+import { Route as EventosRouteImport } from './routes/eventos'
+import { Route as OportunidadesRouteImport } from './routes/oportunidades'
+import { Route as PerfilRouteImport } from './routes/perfil'
 import { Route as QuestionarioRouteImport } from './routes/questionario'
 import { Route as SobreRouteImport } from './routes/sobre'
 
@@ -22,6 +25,21 @@ const IndexRoute = IndexRouteImport.update({
 const CadastroRoute = CadastroRouteImport.update({
   id: '/cadastro',
   path: '/cadastro',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EventosRoute = EventosRouteImport.update({
+  id: '/eventos',
+  path: '/eventos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const OportunidadesRoute = OportunidadesRouteImport.update({
+  id: '/oportunidades',
+  path: '/oportunidades',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PerfilRoute = PerfilRouteImport.update({
+  id: '/perfil',
+  path: '/perfil',
   getParentRoute: () => rootRouteImport,
 } as any)
 const QuestionarioRoute = QuestionarioRouteImport.update({
@@ -38,12 +56,18 @@ const SobreRoute = SobreRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/eventos': typeof EventosRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
   '/questionario': typeof QuestionarioRoute
   '/sobre': typeof SobreRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/eventos': typeof EventosRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
   '/questionario': typeof QuestionarioRoute
   '/sobre': typeof SobreRoute
 }
@@ -51,20 +75,48 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/cadastro': typeof CadastroRoute
+  '/eventos': typeof EventosRoute
+  '/oportunidades': typeof OportunidadesRoute
+  '/perfil': typeof PerfilRoute
   '/questionario': typeof QuestionarioRoute
   '/sobre': typeof SobreRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/cadastro' | '/questionario' | '/sobre'
+  fullPaths:
+    | '/'
+    | '/cadastro'
+    | '/eventos'
+    | '/oportunidades'
+    | '/perfil'
+    | '/questionario'
+    | '/sobre'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/cadastro' | '/questionario' | '/sobre'
-  id: '__root__' | '/' | '/cadastro' | '/questionario' | '/sobre'
+  to:
+    | '/'
+    | '/cadastro'
+    | '/eventos'
+    | '/oportunidades'
+    | '/perfil'
+    | '/questionario'
+    | '/sobre'
+  id:
+    | '__root__'
+    | '/'
+    | '/cadastro'
+    | '/eventos'
+    | '/oportunidades'
+    | '/perfil'
+    | '/questionario'
+    | '/sobre'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CadastroRoute: typeof CadastroRoute
+  EventosRoute: typeof EventosRoute
+  OportunidadesRoute: typeof OportunidadesRoute
+  PerfilRoute: typeof PerfilRoute
   QuestionarioRoute: typeof QuestionarioRoute
   SobreRoute: typeof SobreRoute
 }
@@ -83,6 +135,27 @@ declare module '@tanstack/react-router' {
       path: '/cadastro'
       fullPath: '/cadastro'
       preLoaderRoute: typeof CadastroRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/eventos': {
+      id: '/eventos'
+      path: '/eventos'
+      fullPath: '/eventos'
+      preLoaderRoute: typeof EventosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/oportunidades': {
+      id: '/oportunidades'
+      path: '/oportunidades'
+      fullPath: '/oportunidades'
+      preLoaderRoute: typeof OportunidadesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/perfil': {
+      id: '/perfil'
+      path: '/perfil'
+      fullPath: '/perfil'
+      preLoaderRoute: typeof PerfilRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/questionario': {
@@ -105,6 +178,9 @@ declare module '@tanstack/react-router' {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CadastroRoute: CadastroRoute,
+  EventosRoute: EventosRoute,
+  OportunidadesRoute: OportunidadesRoute,
+  PerfilRoute: PerfilRoute,
   QuestionarioRoute: QuestionarioRoute,
   SobreRoute: SobreRoute,
 }
