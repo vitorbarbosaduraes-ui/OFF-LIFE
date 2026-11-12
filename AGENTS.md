@@ -28,3 +28,9 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+## Project rules
+
+- Site shell (header/footer) lives in `src/routes/__root.tsx` via `src/components/site-header.tsx` and `site-footer.tsx`; one route file per page. Why: matches the rebuilt OFF-LIFE structure and keeps nav consistent.
+- The activity map uses Leaflet + react-leaflet with OpenStreetMap tiles; `src/components/activity-map.tsx` is browser-only and must be loaded with `React.lazy` behind `<ClientOnly>`. Shared data and geo math (Haversine, radius filter) live in `src/lib/activities.ts` with no Leaflet imports. Why: Leaflet touches `window` at import time and would crash SSR.
+- Activity positions are demo offsets placed around the user's location until real coordinates exist. Why: there is no backend yet.

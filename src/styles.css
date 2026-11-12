@@ -266,3 +266,8 @@
   stroke: var(--clay);
   fill: var(--clay);
 }
+
+/* Warm the OpenStreetMap tiles to match the paper palette */
+.offlife-map .leaflet-tile-pane {
+  filter: saturate(0.55) sepia(0.18) brightness(1.02);
+}
